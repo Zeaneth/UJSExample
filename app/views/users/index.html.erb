@@ -2,7 +2,20 @@
 
 <h1>Users</h1>
 
-<table>
+<%= form_for(:user_filter) do |f|%>
+<%= f.label :name, "Name" %>
+<%= f.text_field :name %>
+
+<%= f.label :last_name, "Apellido" %>
+<%= f.text_field :last_name %>
+
+<%= f.label :age, "Edad" %>
+<%= f.number_field :age %>
+
+<%= f.label :weight, "Peso" %>
+<%= f.number_field :weight %>
+
+<%= f.submit "Filtrar" %>
   <thead>
     <tr>
       <th>Name</th>
