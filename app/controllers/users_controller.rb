@@ -5,9 +5,17 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    @user_filter = UserFilter.new
+  end
+
+  def process_filters
     @age = filter_user_params["age"]
     @weight = filter_user_params["weight"]
     @user_filter = UserFilter.new(age: @age, weight: @weight)
+
+    respond_to do |format|
+      format.js {}
+    end
   end
 
   # GET /users/1

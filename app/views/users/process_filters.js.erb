@@ -1,0 +1,2 @@
+$("#user-presentation").empty();
+$("#user-presentation").append("<%= j render partial: 'users/partials/user_presentation', locals: { user_filter: @user_filter, age: @age , weight: @weight } %>");

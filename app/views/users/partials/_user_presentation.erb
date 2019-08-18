@@ -1,3 +1,15 @@
+<%= form_for(user_filter, url: user_filters_path, method: :post, remote: true) do |f|%>
+
+  <%= f.label :age, "Edad" %>
+  <%= f.number_field :age %>
+
+  <%= f.label :weight, "Peso" %>
+  <%= f.number_field :weight %>
+
+  <%= f.submit "Filtrar" %>
+
+<% end %>
+
 <% if age.nil? || weight.nil? %>
   <p> No hay información asociada al filtro </p>
 <% else %>
