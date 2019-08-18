@@ -1,0 +1,3 @@
+class UserFilterController < ApplicationController
+
+end

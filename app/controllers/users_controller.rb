@@ -5,6 +5,9 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    @age = filter_user_params["age"]
+    @weight = filter_user_params["weight"]
+    @user_filter = UserFilter.new(age: @age, weight: @weight)
   end
 
   # GET /users/1
@@ -70,5 +73,9 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:name, :last_name, :age, :weight)
+    end
+
+    def filter_user_params
+      params["user_filter"] || {}
     end
 end

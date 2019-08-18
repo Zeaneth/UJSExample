@@ -2,20 +2,23 @@
 
 <h1>Users</h1>
 
-<%= form_for(:user_filter) do |f|%>
-<%= f.label :name, "Name" %>
-<%= f.text_field :name %>
+<%= form_for(@user_filter, url: users_path, method: :get) do |f|%>
 
-<%= f.label :last_name, "Apellido" %>
-<%= f.text_field :last_name %>
+  <%= f.label :age, "Edad" %>
+  <%= f.number_field :age %>
 
-<%= f.label :age, "Edad" %>
-<%= f.number_field :age %>
+  <%= f.label :weight, "Peso" %>
+  <%= f.number_field :weight %>
 
-<%= f.label :weight, "Peso" %>
-<%= f.number_field :weight %>
+  <%= f.submit "Filtrar" %>
 
-<%= f.submit "Filtrar" %>
+<% end %>
+
+<div id="user-presentation">
+<%= render partial: 'users/partials/user_presentation', locals: { age: @age , weight: @weight } %>
+
+</div>
+
   <thead>
     <tr>
       <th>Name</th>
